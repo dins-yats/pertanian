@@ -12,7 +12,8 @@ class post extends Model
     use Sluggable;
     
     // protected $fillable = ['title', 'excerpt', 'body'];
-    protected $guarded = ['id'];
+    protected $table = 'posts';
+    protected $guarded = [];
 
 
     // eager loading

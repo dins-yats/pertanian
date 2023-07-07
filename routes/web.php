@@ -23,7 +23,6 @@ use App\Models\User;
 Route::get('/', function () {
     return view('Home',[
         "title" => "Home",
-     
     ]);
 });
 
@@ -72,5 +71,6 @@ Route::get('/dashboard', function(){
 Route::get('/dashboard/posts/checkSlug', [DashboardpostController::class, 'checkSlug']);
 
 Route::resource('/dashboard/posts', DashboardpostController::class)->middleware('auth');
+Route::post('/dashboard/posts/store', [DashboardpostController::class, 'store'])->middleware('auth');
 
 Route::resource('/dashboard/lapor', LaporController::class)->middleware('auth');
