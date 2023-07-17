@@ -35,7 +35,14 @@
   <div class="carousel-inner">
     <div class="carousel-item active"> 
       {{-- {{ posts[0]->category->name }}   //untuk memanggil gambar  --}}
-      <img src="https://source.unsplash.com/500x400?{{ $posts[0]->category->name }}" class="d-block w-100" style="height: 500px;" alt="...">
+      @if ($posts[0]->image)
+      <div style="max-height: 500px; overflow:hidden">
+      <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" class="img-fluid">
+      </div>
+      @else
+      <img src="https://source.unsplash.com/500x400?{{ $posts[0]->category->name }}"
+       class="d-block w-100" style="height: 500px;" alt="...">
+       @endif
       <div class="carousel-caption d-none d-md-block">
         <h5><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-white">{{ $posts[0]->title }}</a></h5>
         <p>
@@ -52,7 +59,14 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://source.unsplash.com/500x400?{{ $posts[1]->category->name }}" class="d-block w-100" style="height: 500px;" alt="...">
+      @if ($posts[1]->image)
+      <div style="max-height: 500px; overflow:hidden">
+      <img src="{{ asset('storage/' . $posts[1]->image) }}" alt="{{ $posts[1]->category->name }}" class="img-fluid">
+      </div>
+      @else
+      <img src="https://source.unsplash.com/500x400?{{ $posts[1]->category->name }}"
+       class="d-block w-100" style="height: 500px;" alt="...">
+       @endif
       <div class="carousel-caption d-none d-md-block">
         <h5><a href="/posts/{{ $posts[1]->slug }}" class="text-decoration-none text-white">{{ $posts[1]->title }}</a></h5>
         <p>
@@ -69,7 +83,14 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://source.unsplash.com/500x400?{{ $posts[2]->category->name }}" class="d-block w-100" style="height: 500px;" alt="...">
+      @if ($posts[2]->image)
+      <div style="max-height: 500px; overflow:hidden">
+      <img src="{{ asset('storage/' . $posts[2]->image) }}" alt="{{ $posts[2]->category->name }}" class="img-fluid">
+      </div>
+      @else
+      <img src="https://source.unsplash.com/500x400?{{ $posts[2]->category->name }}"
+       class="d-block w-100" style="height: 500px;" alt="...">
+       @endif
       <div class="carousel-caption d-none d-md-block">
         <h5><a href="/posts/{{ $posts[2]->slug }}" class="text-decoration-none text-white">{{ $posts[2]->title }}</a></h5>
         <p>
@@ -111,8 +132,14 @@
         <div class="position-absolute px-3 py-2 " style="background-color : rgba(0, 0, 0, 0.5 )">
           <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a>
         </div>
+        @if ($post->image)
+        <div style="max-height: 350px; overflow:hidden">
+        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
+        </div>
+        @else
         <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" 
         alt="{{ $post->category->name }}">
+         @endif
         <div class="card-body">
           <h5 class="card-title">{{ $post->title }}</h5>
           <p>

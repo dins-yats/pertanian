@@ -17,6 +17,7 @@ class LaporFactory extends Factory
             
             'poktan' => $this->faker->name(),
             'id_poktan' => $this->faker->randomNumber(5, true),
+            'status' => $this->faker->word(),
             'kelurahan' => $this->faker->word(),
             'kecamatan' => $this->faker->word(),
             'laporan' => $this->faker->paragraph(mt_rand(5,10)),

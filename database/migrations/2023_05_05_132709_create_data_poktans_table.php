@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('bantuan', 100);
             $table->string('sumber_dana', 100);
             $table->text('jenis_bantuan');
+            $table->timestamp('published_at')->nullable();
+            $table->timestamps();
         });
     }
 

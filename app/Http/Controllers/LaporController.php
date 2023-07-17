@@ -14,7 +14,10 @@ class LaporController extends Controller
      */
     public function index()
     {
-        return view('dashboard.lapor.index');
+        return view('dashboard.lapors.index', [
+            'lapors' =>lapor::all()
+        ]);
+
     }
 
     /**

@@ -18,6 +18,7 @@ class CreateLaporsTable extends Migration
             $table->foreignId('user_id');
             $table->string('poktan');
             $table->string('id_poktan');
+            $table->string('status');
             $table->string('kelurahan');
             $table->string('kecamatan');
             $table->text('laporan');

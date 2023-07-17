@@ -73,4 +73,4 @@ Route::get('/dashboard/posts/checkSlug', [DashboardpostController::class, 'check
 Route::resource('/dashboard/posts', DashboardpostController::class)->middleware('auth');
 Route::post('/dashboard/posts/store', [DashboardpostController::class, 'store'])->middleware('auth');
 
-Route::resource('/dashboard/lapor', LaporController::class)->middleware('auth');
+Route::resource('/dashboard/lapor', LaporController::class)->except('show')->middleware('admin');

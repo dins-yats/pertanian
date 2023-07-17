@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('bantuan');
             $table->string('sumber_dana');
             $table->text('jenis_bantuan');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class data_poktan extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+    protected $with = ['user'];
+
 }

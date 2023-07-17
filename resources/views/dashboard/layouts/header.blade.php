@@ -7,7 +7,7 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
 
 
-  {{-- <div class="dropdown text-end px-3">
+  <div class="dropdown text-end px-3">
     <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1"
       data-bs-toggle="dropdown" aria-expanded="false">
       <img src="https://github.com/mdo.png" width="32" height="32" class="rounded-circle border border-light">
@@ -27,11 +27,16 @@
             <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-left"></i> Logout</button>
             <div class="navbar-nav">
               <div class="nav-item text-nowrap">
-                <form action="/logout" method="post">
+                {{-- <form action="/logout" method="post">
                   @csrf
                   <button type="submit" class="nav-link px-3 bg-dark border-0"> Logout<span
                       data-feather="log-out"></span> </button>
-                </form>
+                </form> --}}
               </div>
-            </div> --}}
+            </div>
+          </form>
+      </li>
+    </ul>
+    </div>
+    
 </header>
