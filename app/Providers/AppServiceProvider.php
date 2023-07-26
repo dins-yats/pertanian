@@ -27,9 +27,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-
+        // gate untuk menu 
         Gate::define('admin', function(User $user){
            return $user->is_admin;
         });
+        Gate::define('notadmin', function(User $user){
+           return !$user->is_admin;
+        });
+
     }
 }

@@ -47,9 +47,9 @@ class User extends Authenticatable
          return $this->hasMany(post::class);
      }
 
-     public function lapor()
+     public function report()
      {
-         return $this->hasMany(lapor::class);
+         return $this->hasMany(Report::class);
      }
  
 

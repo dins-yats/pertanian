@@ -49,9 +49,9 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'pupuk',
                 ]);
             
-         \App\Models\User::factory(5)->create();
-         \App\Models\post::factory(50)->create();
-         \App\Models\lapor::factory(3)->create();
+         \App\Models\User::factory(2)->create();
+         \App\Models\post::factory(13)->create();
+         \App\Models\Report::factory(6)->create();
 
         
         // post::create([

@@ -1,10 +1,18 @@
 <?php
 
 use App\Http\Controllers\DashboardpostController;
+use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DatapoktanController;
+use App\Http\Controllers\GantipasswordController;
+use App\Http\Controllers\laporancontroller;
 use App\Http\Controllers\LaporController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\pengaduan;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ReportUserController;
 use App\Models\post;
 use App\Models\category;
 use App\Models\User;
@@ -67,10 +75,23 @@ Route::get('/dashboard', function(){
   return view('dashboard.index');
 })->middleware('auth');
 
+
+Route::get('/dashboard/profil', [ProfilController::class, 'index'])->middleware('auth');
+
+Route::get('/dashboard/password', [GantipasswordController::class, 'edit'])->middleware('auth');
+Route::post('/dashboard/password', [GantipasswordController::class, 'updatepassword'])->middleware('auth');
+
 // route untuk slug
 Route::get('/dashboard/posts/checkSlug', [DashboardpostController::class, 'checkSlug']);
 
 Route::resource('/dashboard/posts', DashboardpostController::class)->middleware('auth');
 Route::post('/dashboard/posts/store', [DashboardpostController::class, 'store'])->middleware('auth');
 
-Route::resource('/dashboard/lapor', LaporController::class)->except('show')->middleware('admin');
+// Route::resource('/dashboard/lapor', LaporController::class)->except('show')->middleware('admin');
+// Route::resource('/dashboard/posts/', DashboardPostController::class)->except([
+//   'show', 'destroy', 'edit', 'update'
+// ])->middleware('auth');
+
+Route::resource('/dashboard/reportus', ReportUserController::class)->middleware('auth');
+Route::resource('/dashboard/report', ReportController::class)->middleware('admin');
+

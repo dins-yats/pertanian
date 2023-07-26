@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lapor;
+use App\Models\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 
-class LaporController extends Controller
+class ReportUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +18,9 @@ class LaporController extends Controller
      */
     public function index()
     {
-        return view('dashboard.lapors.index', [
-            'lapors' =>lapor::all()
+        return view('dashboard.reportus.index', [
+            'Report' =>Report::where('user_id', auth()->user()->id)->get()
         ]);
-
     }
 
     /**
@@ -44,33 +47,37 @@ class LaporController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\lapor  $lapor
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function show(lapor $lapor)
+    public function show(Report $report)
     {
-        //
+        return view('dashboard.reportus.show',[
+            'Report' =>$report
+       ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\lapor  $lapor
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function edit(lapor $lapor)
+    public function edit(Report $report)
     {
-        //
+        return view('dashboard.reportus.edit',[
+            'Report' => $report,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\lapor  $lapor
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, lapor $lapor)
+    public function update(Request $request, Report $report)
     {
         //
     }
@@ -78,11 +85,12 @@ class LaporController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\lapor  $lapor
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function destroy(lapor $lapor)
+    public function destroy(Report $report)
     {
-        //
+        Report::destroy($report->id); 
+        return redirect('/dashboard/reportus')->with('success', 'Post telah dihapus');
     }
 }

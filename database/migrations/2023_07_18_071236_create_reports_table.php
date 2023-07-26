@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLaporsTable extends Migration
+class CreateReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateLaporsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lapors', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->string('poktan');
-            $table->string('id_poktan');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('id_poktan')->nullable();
             $table->string('status');
             $table->string('kelurahan');
             $table->string('kecamatan');
             $table->text('laporan');
+            $table->text('solusi');
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ class CreateLaporsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lapors');
+        Schema::dropIfExists('reports');
     }
 }
