@@ -38,15 +38,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link {{ Request::is('dashboard/poktan*') ? 'active' : ''}}" href="/dashboard/poktan">
             <span data-feather="file-text"></span>
             Data kelompok tani
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="file-text"></span>
-            Year-end sale
           </a>
         </li>
       </ul>

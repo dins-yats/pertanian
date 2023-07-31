@@ -35,76 +35,18 @@
   <div class="carousel-inner">
     <div class="carousel-item active"> 
       {{-- {{ posts[0]->category->name }}   //untuk memanggil gambar  --}}
-      @if ($posts[0]->image)
-      <div style="max-height: 500px; overflow:hidden">
-      <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" class="img-fluid">
-      </div>
-      @else
-      <img src="https://source.unsplash.com/500x400?{{ $posts[0]->category->name }}"
+      <img src="/img/tanihome.jpg"
        class="d-block w-100" style="height: 500px;" alt="...">
-       @endif
-      <div class="carousel-caption d-none d-md-block">
-        <h5><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-white">{{ $posts[0]->title }}</a></h5>
-        <p>
-          <small>Oleh <a href="/posts?author={{ $posts[0]->user->ketua }}" class="text-decoration-none">{{ $posts[0]->user->ketua }} </a>  in  
-            <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a>
-        {{ $posts[0]->created_at->diffForHumans() }}
-          
-          </small>
-        </p>
-        <p>{{ $posts[0]->excerpt }}</p>
-        <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Baca Selengkapnya</a>
-        
-
-      </div>
     </div>
     <div class="carousel-item">
-      @if ($posts[1]->image)
-      <div style="max-height: 500px; overflow:hidden">
-      <img src="{{ asset('storage/' . $posts[1]->image) }}" alt="{{ $posts[1]->category->name }}" class="img-fluid">
-      </div>
-      @else
-      <img src="https://source.unsplash.com/500x400?{{ $posts[1]->category->name }}"
+  
+      <img src="/img/tanihomee.jpg"
        class="d-block w-100" style="height: 500px;" alt="...">
-       @endif
-      <div class="carousel-caption d-none d-md-block">
-        <h5><a href="/posts/{{ $posts[1]->slug }}" class="text-decoration-none text-white">{{ $posts[1]->title }}</a></h5>
-        <p>
-          <small>Oleh <a href="/posts?author={{ $posts[1]->user->ketua }}" class="text-decoration-none">{{ $posts[1]->user->ketua }} </a>  in  
-            <a href="/posts?category={{ $posts[1]->category->slug }}" class="text-decoration-none">{{ $posts[1]->category->name }}</a>
-        {{ $posts[1]->created_at->diffForHumans() }}
-          
-          </small>
-        </p>
-        <p>{{ $posts[1]->excerpt }}</p>
-        <a href="/posts/{{ $posts[1]->slug }}" class="text-decoration-none btn btn-primary">Baca Selengkapnya</a>
-        
-
-      </div>
     </div>
     <div class="carousel-item">
-      @if ($posts[2]->image)
-      <div style="max-height: 500px; overflow:hidden">
-      <img src="{{ asset('storage/' . $posts[2]->image) }}" alt="{{ $posts[2]->category->name }}" class="img-fluid">
-      </div>
-      @else
-      <img src="https://source.unsplash.com/500x400?{{ $posts[2]->category->name }}"
+  
+      <img src="/img/hometani.jpg"
        class="d-block w-100" style="height: 500px;" alt="...">
-       @endif
-      <div class="carousel-caption d-none d-md-block">
-        <h5><a href="/posts/{{ $posts[2]->slug }}" class="text-decoration-none text-white">{{ $posts[2]->title }}</a></h5>
-        <p>
-          <small>Oleh <a href="/posts?author={{ $posts[2]->user->ketua }}" class="text-decoration-none">{{ $posts[2]->user->ketua }} </a>  in  
-            <a href="/posts?category={{ $posts[2]->category->slug }}" class="text-decoration-none">{{ $posts[2]->category->name }}</a>
-        {{ $posts[2]->created_at->diffForHumans() }}
-          
-          </small>
-        </p>
-        <p>{{ $posts[2]->excerpt }}</p>
-        <a href="/posts/{{ $posts[2]->slug }}" class="text-decoration-none btn btn-primary">Baca Selengkapnya</a>
-        
-
-      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -122,7 +64,7 @@
 
 <div class="container">
   <div class="row">
-    @foreach ($posts->skip(3) as $post)
+    @foreach ($posts as $post)
         
   
     <div class="col-md-4 mb-3">

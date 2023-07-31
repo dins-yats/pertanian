@@ -41,6 +41,23 @@ class User extends Authenticatable
      * @var array<string, string>
      */
 
+                // fungsi pencarian konek ke model
+    public function scopeFilter($query , array $filters)
+    {
+
+
+
+        $query->when($filters['keyword'] ?? false, function($query, $keyword) {
+            return $query->Where('nama_poktan', 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('id_poktan', 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('kelurahan', 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('kecamatan', 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('NIK', 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('ketua', 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('alamat_sekretariat', 'LIKE', '%'.$keyword.'%');
+              
+        });
+    }
 
      public function posts()
      {

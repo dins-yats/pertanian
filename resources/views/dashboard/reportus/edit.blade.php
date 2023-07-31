@@ -6,13 +6,13 @@
 </div>
 
 <div class="col-lg-8">
-  <form method="POST" action="/dashboard/reportus/{{ $report->slug}}" enctype="multipart/form-data">
+  <form method="POST" action="/dashboard/reportus/{{ $Report->slug}}" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div class="mb-3">
       <label for="id_poktan" class="form-label">ID poktan</label>
       <input type="text" class="form-control @error('id_poktan') is-invalid @enderror" id="id_poktan" name="id_poktan" disabled autofocus 
-      value="{{ old('id_poktan', $report->id_poktan) }}">
+      value="{{ old('id_poktan', $Report->id_poktan) }}">
       @error('id_poktan')
       <div class="invalid-feedback">
         {{ $message }}
@@ -21,19 +21,19 @@
     </div>
     <div class="mb-3">
       <label for="poktan" class="form-label">Nama</label>
-      <input type="text" class="form-control" id="poktan" name="poktan" disabled value="{{ old('poktan', $report->poktan) }}">
+      <input type="text" class="form-control" id="poktan" name="poktan" disabled value="{{ old('poktan', $Report->poktan) }}">
     </div>
     <div class="mb-3">
       <label for="kelurahan" class="form-label">kelurahan</label>
-      <input type="text" class="form-control" id="kelurahan" name="kelurahan" disabled value="{{ old('kelurahan', $report->kelurahan) }}">
+      <input type="text" class="form-control" id="kelurahan" name="kelurahan" disabled value="{{ old('kelurahan', $Report->kelurahan) }}">
     </div>
     <div class="mb-3">
       <label for="kecamatan" class="form-label">kecamatan</label>
-      <input type="text" class="form-control" id="kecamatan" name="kecamatan" disabled value="{{ old('kecamatan', $report->kecamatan) }}">
+      <input type="text" class="form-control" id="kecamatan" name="kecamatan" disabled value="{{ old('kecamatan', $Report->kecamatan) }}">
     </div>
     <div>
       <label for="Status" class="form-label">Status</label>
-    <select class="form-select" id="status" name="status" required value="{{ old('status', $report->status) }}">
+    <select class="form-select" id="status" name="status" required value="{{ old('status', $Report->status) }}">
       <option selected>Pilih Status</option>
       <option value="belum dikonfimasi">belum Konfimasi</option>
       <option value="Proses">Proses</option>
@@ -42,7 +42,7 @@
   </div>
     <div class="mb-3">
       <label for="laporan" class="form-label">laporan</label>
-      <textarea class="form-control" id="laporan" name="laporan" value="{{ old('laporan', $report->laporan) }}" style="height: 200px" disabled>{{ old('laporan', $report->laporan) }}</textarea>
+      <textarea class="form-control" id="laporan" name="laporan" value="{{ old('laporan', $Report->laporan) }}" style="height: 200px" disabled>{{ old('laporan', $Report->laporan) }}</textarea>
     </div>
     <div class="mb-3">
       <label for="solusi" class="form-label">Body</label>
@@ -51,7 +51,7 @@
         {{ $message }}
       </p>
       @enderror
-      <input id="solusi" type="hidden" name="solusi" value="{{ old('solusi', $report->solusi) }}" required>
+      <input id="solusi" type="hidden" name="solusi" value="{{ old('solusi', $Report->solusi) }}" required>
       <trix-editor input="solusi"></trix-editor>
     </div>
    

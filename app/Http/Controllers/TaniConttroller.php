@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Report;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Auth;
-use Illuminate\Support\Facades\Storage;
 
-class ReportUserController extends Controller
+class TaniConttroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +13,7 @@ class ReportUserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.reportus.index', [
-            'Report' =>Report::where('user_id', auth()->user()->id)->get()
-        ]);
+        //
     }
 
     /**
@@ -30,8 +23,7 @@ class ReportUserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.reportus.create', [ 
-        ]);
+        //
     }
 
     /**
@@ -48,37 +40,33 @@ class ReportUserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $report = Report::find($id);
-        return view('dashboard.reportus.show', ['report' => $report]);
-    //     return view('dashboard.reportus.show',[
-    //         'Report' =>$report
-    //    ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Report $report)
+    public function edit($id)
     {
-        
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Report  $report
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,12 +74,11 @@ class ReportUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Report  $report
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Report $report)
+    public function destroy($id)
     {
-        Report::destroy($report->id); 
-        return redirect('/dashboard/reportus')->with('success', 'Post telah dihapus');
+        //
     }
 }

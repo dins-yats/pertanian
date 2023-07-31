@@ -17,12 +17,20 @@ class DashboardpostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->keyword;
         return view('dashboard.posts.index',[
             // untuk memanggil semua post
             // 'post' =>post::all() 
-            'posts' =>post::where('user_id', auth()->user()->id)->get()
+            // 'posts' =>post::where('user_id', auth()->user()->id)->get()
+            'posts' =>post::with('category')
+                            ->where('title', 'LIKE', '%'.$keyword.'%')
+                            ->orWhere('body', 'LIKE', '%'.$keyword.'%')
+                            ->orWhereHas('category',function($query) use($keyword) {
+                                $query->where('name', 'LIKE', '%'.$keyword.'%');
+                            })
+                            ->paginate(20)
         ]);
     }
 

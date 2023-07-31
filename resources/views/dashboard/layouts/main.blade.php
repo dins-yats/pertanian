@@ -19,6 +19,9 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
+    {{-- font awesome --}}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
     {{-- untuk menghilangkan menu upload --}}
  <style>
     trix-toolbar [ data-trix-button-group="file-tools"]{

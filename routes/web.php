@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardpostController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DatapoktanController;
+use App\Http\Controllers\DataPoktanController as ControllersDataPoktanController;
 use App\Http\Controllers\GantipasswordController;
 use App\Http\Controllers\laporancontroller;
 use App\Http\Controllers\LaporController;
@@ -93,5 +94,15 @@ Route::post('/dashboard/posts/store', [DashboardpostController::class, 'store'])
 // ])->middleware('auth');
 
 Route::resource('/dashboard/reportus', ReportUserController::class)->middleware('auth');
+Route::get('/dashboard/reportus/{id}', [ReportUserController::class, 'show'])->middleware('auth');
 Route::resource('/dashboard/report', ReportController::class)->middleware('admin');
+
+Route::resource('/dashboard/poktan', DatapoktanController::class)->middleware('admin');
+Route::post('/dashboard/poktan/store',[DatapoktanController::class, 'store'])->middleware('admin');
+Route::post('/dashboard/poktan/{id}',[DatapoktanController::class, 'show'])->middleware('admin');
+Route::post('/dashboard/poktan/{id}',[DatapoktanController::class, 'update'])->middleware('admin');
+
+// export pdf
+// Route::post('/dashboard/poktan/{id}',[DatapoktanController::class, 'update'])->middleware('admin');
+
 

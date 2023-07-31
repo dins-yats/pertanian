@@ -8,7 +8,7 @@
 
 
          <h1 class="mb-3">{{ $post->title }}</h1>
-         <p>Oleh <a href="/authors/{{ $post->user->ketua }}" class="text-decoration-none">{{ $post->user->ketua }} </a> in <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
+         <p>Oleh DINAS TPHP KAB. MUBA in <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
          {{-- <h5>{{ $post->author }}</h5> --}}
 
          @if ($post->image)
