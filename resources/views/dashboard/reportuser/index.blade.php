@@ -14,6 +14,7 @@
 @endif
 
 <div class="table-responsive col-lg-8">
+  
 
     <table class="table table-striped table-sm">
       <thead>

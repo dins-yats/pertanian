@@ -16,10 +16,17 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+            $keyword = $request->keyword;
             return view('dashboard.report.index', [
-                'Report' =>Report::all()
+                'reports' =>Report::where('poktan', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('title', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('id_poktan', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('kelurahan', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('kecamatan', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('status', 'LIKE', '%'.$keyword.'%')
+                ->paginate(20)
             ]);
     }
 
